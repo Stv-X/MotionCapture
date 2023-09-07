@@ -65,6 +65,7 @@ struct CaptionSettings: View {
 
 struct AddCaptionModal: View {
     @Environment(\.modelContext) private var context
+    @Query var allCaptions: [MotionCaption]
     @Binding var isPresented: Bool
     @State private var caption = ""
     var body: some View {
@@ -82,8 +83,7 @@ struct AddCaptionModal: View {
                     isPresented = false
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(caption == "")
-                
+                .disabled(caption == "" || allCaptions.contains(where: { $0.caption == caption }))
             }
             .navigationTitle("Caption")
             .scenePadding()
