@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AAC766F52AA94E86009EB396 /* MotionCaptureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC766F42AA94E86009EB396 /* MotionCaptureApp.swift */; };
-		AAC766F72AA94E86009EB396 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC766F62AA94E86009EB396 /* ContentView.swift */; };
+		AAB07C9F2AAA194C00E54664 /* MotionRecordArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07C9E2AAA194C00E54664 /* MotionRecordArchive.swift */; };
+		AAB07CA02AAA194C00E54664 /* MotionRecordArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07C9E2AAA194C00E54664 /* MotionRecordArchive.swift */; };
 		AAC766F92AA94E87009EB396 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC766F82AA94E87009EB396 /* Assets.xcassets */; };
 		AAC766FC2AA94E87009EB396 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC766FB2AA94E87009EB396 /* Preview Assets.xcassets */; };
 		AAC767022AA94E87009EB396 /* MotionCapture Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AAC767012AA94E87009EB396 /* MotionCapture Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -16,6 +16,36 @@
 		AAC767092AA94E87009EB396 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767082AA94E87009EB396 /* ContentView.swift */; };
 		AAC7670B2AA94E88009EB396 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC7670A2AA94E88009EB396 /* Assets.xcassets */; };
 		AAC7670E2AA94E88009EB396 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC7670D2AA94E88009EB396 /* Preview Assets.xcassets */; };
+		AAC7671A2AA94EBF009EB396 /* MotionRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767192AA94EBF009EB396 /* MotionRecord.swift */; };
+		AAC7671C2AA94F08009EB396 /* AccelerationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7671B2AA94F08009EB396 /* AccelerationRecord.swift */; };
+		AAC7671D2AA94F08009EB396 /* AccelerationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7671B2AA94F08009EB396 /* AccelerationRecord.swift */; };
+		AAC7671E2AA94F0D009EB396 /* MotionRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767192AA94EBF009EB396 /* MotionRecord.swift */; };
+		AAC767202AA94F16009EB396 /* RotationRateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7671F2AA94F16009EB396 /* RotationRateRecord.swift */; };
+		AAC767212AA94F16009EB396 /* RotationRateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7671F2AA94F16009EB396 /* RotationRateRecord.swift */; };
+		AAC767232AA95202009EB396 /* PlottableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767222AA95202009EB396 /* PlottableRecord.swift */; };
+		AAC767242AA95202009EB396 /* PlottableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767222AA95202009EB396 /* PlottableRecord.swift */; };
+		AAC767272AA9558E009EB396 /* TransferableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767262AA9558E009EB396 /* TransferableRecord.swift */; };
+		AAC767282AA9558E009EB396 /* TransferableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767262AA9558E009EB396 /* TransferableRecord.swift */; };
+		AAC7672A2AA98D85009EB396 /* TransferableRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767292AA98D85009EB396 /* TransferableRecords.swift */; };
+		AAC7672B2AA98D85009EB396 /* TransferableRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767292AA98D85009EB396 /* TransferableRecords.swift */; };
+		AAC7672D2AA98DD6009EB396 /* MotionCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7672C2AA98DD6009EB396 /* MotionCaption.swift */; };
+		AAC7672E2AA98DD6009EB396 /* MotionCaption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7672C2AA98DD6009EB396 /* MotionCaption.swift */; };
+		AAC767312AA99EA0009EB396 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7672F2AA99EA0009EB396 /* StartView.swift */; };
+		AAC767332AA99EBC009EB396 /* CaptionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767322AA99EBC009EB396 /* CaptionSettings.swift */; };
+		AAC767342AA99EBC009EB396 /* CaptionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767322AA99EBC009EB396 /* CaptionSettings.swift */; };
+		AAC767362AA9A0B7009EB396 /* MotionRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767352AA9A0B7009EB396 /* MotionRecordsView.swift */; };
+		AAC767372AA9A0B7009EB396 /* MotionRecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767352AA9A0B7009EB396 /* MotionRecordsView.swift */; };
+		AAC767392AA9A351009EB396 /* MotionCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767382AA9A351009EB396 /* MotionCaptureManager.swift */; };
+		AAC7673A2AA9A351009EB396 /* MotionCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767382AA9A351009EB396 /* MotionCaptureManager.swift */; };
+		AAC7673F2AA9A4DC009EB396 /* AccelerationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7673E2AA9A4DC009EB396 /* AccelerationMonitor.swift */; };
+		AAC767402AA9A4DC009EB396 /* AccelerationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7673E2AA9A4DC009EB396 /* AccelerationMonitor.swift */; };
+		AAC767422AA9A4E5009EB396 /* RotationRateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767412AA9A4E5009EB396 /* RotationRateMonitor.swift */; };
+		AAC767432AA9A4E5009EB396 /* RotationRateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767412AA9A4E5009EB396 /* RotationRateMonitor.swift */; };
+		AAC767442AA9A8E4009EB396 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7672F2AA99EA0009EB396 /* StartView.swift */; };
+		AAC767462AA9BAC1009EB396 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC767082AA94E87009EB396 /* ContentView.swift */; };
+		AAC767472AA9BB14009EB396 /* MotionCaptureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC766F42AA94E86009EB396 /* MotionCaptureApp.swift */; };
+		AAC7674C2AA9BD7C009EB396 /* MotionRecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7674B2AA9BD7C009EB396 /* MotionRecordDetailView.swift */; };
+		AAC7674D2AA9BD7C009EB396 /* MotionRecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC7674B2AA9BD7C009EB396 /* MotionRecordDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +73,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AAB07C9E2AAA194C00E54664 /* MotionRecordArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionRecordArchive.swift; sourceTree = "<group>"; };
 		AAC766F12AA94E86009EB396 /* MotionCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC766F42AA94E86009EB396 /* MotionCaptureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionCaptureApp.swift; sourceTree = "<group>"; };
-		AAC766F62AA94E86009EB396 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AAC766F82AA94E87009EB396 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAC766FB2AA94E87009EB396 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AAC767012AA94E87009EB396 /* MotionCapture Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MotionCapture Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +83,20 @@
 		AAC767082AA94E87009EB396 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AAC7670A2AA94E88009EB396 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAC7670D2AA94E88009EB396 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AAC767192AA94EBF009EB396 /* MotionRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionRecord.swift; sourceTree = "<group>"; };
+		AAC7671B2AA94F08009EB396 /* AccelerationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationRecord.swift; sourceTree = "<group>"; };
+		AAC7671F2AA94F16009EB396 /* RotationRateRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationRateRecord.swift; sourceTree = "<group>"; };
+		AAC767222AA95202009EB396 /* PlottableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlottableRecord.swift; sourceTree = "<group>"; };
+		AAC767262AA9558E009EB396 /* TransferableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferableRecord.swift; sourceTree = "<group>"; };
+		AAC767292AA98D85009EB396 /* TransferableRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferableRecords.swift; sourceTree = "<group>"; };
+		AAC7672C2AA98DD6009EB396 /* MotionCaption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionCaption.swift; sourceTree = "<group>"; };
+		AAC7672F2AA99EA0009EB396 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		AAC767322AA99EBC009EB396 /* CaptionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionSettings.swift; sourceTree = "<group>"; };
+		AAC767352AA9A0B7009EB396 /* MotionRecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionRecordsView.swift; sourceTree = "<group>"; };
+		AAC767382AA9A351009EB396 /* MotionCaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionCaptureManager.swift; sourceTree = "<group>"; };
+		AAC7673E2AA9A4DC009EB396 /* AccelerationMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationMonitor.swift; sourceTree = "<group>"; };
+		AAC767412AA9A4E5009EB396 /* RotationRateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationRateMonitor.swift; sourceTree = "<group>"; };
+		AAC7674B2AA9BD7C009EB396 /* MotionRecordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionRecordDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +117,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AAB07C9D2AAA057B00E54664 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AAC767382AA9A351009EB396 /* MotionCaptureManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AAB07CA12AAA197000E54664 /* Transferable */ = {
+			isa = PBXGroup;
+			children = (
+				AAC767262AA9558E009EB396 /* TransferableRecord.swift */,
+				AAC767292AA98D85009EB396 /* TransferableRecords.swift */,
+				AAB07C9E2AAA194C00E54664 /* MotionRecordArchive.swift */,
+			);
+			path = Transferable;
+			sourceTree = "<group>";
+		};
 		AAC766E82AA94E85009EB396 = {
 			isa = PBXGroup;
 			children = (
+				AAC767182AA94E9E009EB396 /* Shared */,
 				AAC766F32AA94E86009EB396 /* MotionCapture */,
 				AAC767052AA94E87009EB396 /* MotionCapture Watch App */,
 				AAC766F22AA94E86009EB396 /* Products */,
@@ -95,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				AAC766F42AA94E86009EB396 /* MotionCaptureApp.swift */,
-				AAC766F62AA94E86009EB396 /* ContentView.swift */,
 				AAC766F82AA94E87009EB396 /* Assets.xcassets */,
 				AAC766FA2AA94E87009EB396 /* Preview Content */,
 			);
@@ -114,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				AAC767062AA94E87009EB396 /* MotionCaptureApp.swift */,
-				AAC767082AA94E87009EB396 /* ContentView.swift */,
 				AAC7670A2AA94E88009EB396 /* Assets.xcassets */,
 				AAC7670C2AA94E88009EB396 /* Preview Content */,
 			);
@@ -127,6 +188,59 @@
 				AAC7670D2AA94E88009EB396 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AAC767182AA94E9E009EB396 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				AAC767482AA9BB3F009EB396 /* Views */,
+				AAC767252AA95508009EB396 /* Models */,
+				AAB07C9D2AAA057B00E54664 /* Controllers */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		AAC767252AA95508009EB396 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AAC7672C2AA98DD6009EB396 /* MotionCaption.swift */,
+				AAC767192AA94EBF009EB396 /* MotionRecord.swift */,
+				AAC7671B2AA94F08009EB396 /* AccelerationRecord.swift */,
+				AAC7671F2AA94F16009EB396 /* RotationRateRecord.swift */,
+				AAC767222AA95202009EB396 /* PlottableRecord.swift */,
+				AAB07CA12AAA197000E54664 /* Transferable */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AAC767482AA9BB3F009EB396 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AAC767082AA94E87009EB396 /* ContentView.swift */,
+				AAC767492AA9BD5D009EB396 /* Start Now */,
+				AAC7674A2AA9BD68009EB396 /* Records */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AAC767492AA9BD5D009EB396 /* Start Now */ = {
+			isa = PBXGroup;
+			children = (
+				AAC7672F2AA99EA0009EB396 /* StartView.swift */,
+				AAC767322AA99EBC009EB396 /* CaptionSettings.swift */,
+				AAC7673E2AA9A4DC009EB396 /* AccelerationMonitor.swift */,
+				AAC767412AA9A4E5009EB396 /* RotationRateMonitor.swift */,
+			);
+			path = "Start Now";
+			sourceTree = "<group>";
+		};
+		AAC7674A2AA9BD68009EB396 /* Records */ = {
+			isa = PBXGroup;
+			children = (
+				AAC767352AA9A0B7009EB396 /* MotionRecordsView.swift */,
+				AAC7674B2AA9BD7C009EB396 /* MotionRecordDetailView.swift */,
+			);
+			path = Records;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +345,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAC766F72AA94E86009EB396 /* ContentView.swift in Sources */,
-				AAC766F52AA94E86009EB396 /* MotionCaptureApp.swift in Sources */,
+				AAC7671C2AA94F08009EB396 /* AccelerationRecord.swift in Sources */,
+				AAC767332AA99EBC009EB396 /* CaptionSettings.swift in Sources */,
+				AAC767272AA9558E009EB396 /* TransferableRecord.swift in Sources */,
+				AAC767232AA95202009EB396 /* PlottableRecord.swift in Sources */,
+				AAC7671A2AA94EBF009EB396 /* MotionRecord.swift in Sources */,
+				AAB07C9F2AAA194C00E54664 /* MotionRecordArchive.swift in Sources */,
+				AAC767442AA9A8E4009EB396 /* StartView.swift in Sources */,
+				AAC767202AA94F16009EB396 /* RotationRateRecord.swift in Sources */,
+				AAC767392AA9A351009EB396 /* MotionCaptureManager.swift in Sources */,
+				AAC767362AA9A0B7009EB396 /* MotionRecordsView.swift in Sources */,
+				AAC767422AA9A4E5009EB396 /* RotationRateMonitor.swift in Sources */,
+				AAC7674C2AA9BD7C009EB396 /* MotionRecordDetailView.swift in Sources */,
+				AAC7672A2AA98D85009EB396 /* TransferableRecords.swift in Sources */,
+				AAC767462AA9BAC1009EB396 /* ContentView.swift in Sources */,
+				AAC767472AA9BB14009EB396 /* MotionCaptureApp.swift in Sources */,
+				AAC7673F2AA9A4DC009EB396 /* AccelerationMonitor.swift in Sources */,
+				AAC7672D2AA98DD6009EB396 /* MotionCaption.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +370,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC767092AA94E87009EB396 /* ContentView.swift in Sources */,
+				AAC767312AA99EA0009EB396 /* StartView.swift in Sources */,
+				AAC7671D2AA94F08009EB396 /* AccelerationRecord.swift in Sources */,
+				AAC767342AA99EBC009EB396 /* CaptionSettings.swift in Sources */,
+				AAC767282AA9558E009EB396 /* TransferableRecord.swift in Sources */,
+				AAB07CA02AAA194C00E54664 /* MotionRecordArchive.swift in Sources */,
+				AAC767242AA95202009EB396 /* PlottableRecord.swift in Sources */,
+				AAC7671E2AA94F0D009EB396 /* MotionRecord.swift in Sources */,
+				AAC767212AA94F16009EB396 /* RotationRateRecord.swift in Sources */,
 				AAC767072AA94E87009EB396 /* MotionCaptureApp.swift in Sources */,
+				AAC7673A2AA9A351009EB396 /* MotionCaptureManager.swift in Sources */,
+				AAC7674D2AA9BD7C009EB396 /* MotionRecordDetailView.swift in Sources */,
+				AAC767372AA9A0B7009EB396 /* MotionRecordsView.swift in Sources */,
+				AAC767432AA9A4E5009EB396 /* RotationRateMonitor.swift in Sources */,
+				AAC7672B2AA98D85009EB396 /* TransferableRecords.swift in Sources */,
+				AAC767402AA9A4DC009EB396 /* AccelerationMonitor.swift in Sources */,
+				AAC7672E2AA98DD6009EB396 /* MotionCaption.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +528,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = MotionCapture;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.stv.x.MotionCapture;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -414,6 +559,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = MotionCapture;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.stv.x.MotionCapture;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

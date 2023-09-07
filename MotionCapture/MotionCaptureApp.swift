@@ -12,6 +12,10 @@ struct MotionCaptureApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: [
+                    MotionCaption.self,
+                    MotionRecord.self
+                ])
         }
     }
 }
