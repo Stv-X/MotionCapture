@@ -48,43 +48,82 @@ extension TransferableRecords: Codable {
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(date, forKey: .date)
-        try container.encode(caption, forKey: .caption)
         try container.encode(records, forKey: .records)
     }
 }
 
-extension TransferableRecords {
-    init(json: Data) throws {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        self = try decoder.decode(TransferableRecords.self, from: json)
-    }
-    
-    init(file: URL) {
-        let data = try! Data(contentsOf: file)
-        try! self.init(json: data)
-    }
-}
 
 extension TransferableRecords {
+    
+    private func jsonForML(_ str: String) throws -> String {
+        // 将输入的 JSON 字符串转换为 Data
+            guard let data = str.data(using: .utf8) else {
+                throw NSError(domain: "Invalid JSON String", code: 0, userInfo: nil)
+            }
+
+            // 解析 JSON 数据为数组
+            let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
+
+            // 定义一个数组用于存储转换后的 JSON 对象
+            var transformedJsonArray = [[String: Any]]()
+
+            // 遍历原始 JSON 数组
+            for jsonObject in jsonArray {
+                var transformedObject = [String: Any]()
+
+                // 提取 "timestamp" 键的值
+                if let timestamp = jsonObject["timestamp"] as? Double {
+                    transformedObject["timestamp"] = timestamp
+                }
+
+                // 提取 "acceleration" 键的值，并将其分解成 X、Y、Z 分量
+                if let acceleration = jsonObject["acceleration"] as? [String: Double] {
+                    transformedObject["accelerationX"] = acceleration["x"]
+                    transformedObject["accelerationY"] = acceleration["y"]
+                    transformedObject["accelerationZ"] = acceleration["z"]
+                }
+
+                // 提取 "rotationRate" 键的值，并将其分解成 X、Y、Z 分量
+                if let rotationRate = jsonObject["rotationRate"] as? [String: Double] {
+                    transformedObject["rotationRateX"] = rotationRate["x"]
+                    transformedObject["rotationRateY"] = rotationRate["y"]
+                    transformedObject["rotationRateZ"] = rotationRate["z"]
+                }
+
+                // 将转换后的对象添加到新的数组中
+                transformedJsonArray.append(transformedObject)
+            }
+
+            // 将新的 JSON 数组转换回 JSON 字符串
+            let transformedData = try JSONSerialization.data(withJSONObject: transformedJsonArray, options: [.prettyPrinted])
+            let transformedString = String(data: transformedData, encoding: .utf8)!
+
+            return transformedString
+    }
+    
     func exportFile() throws -> URL? {
         let data = self
         let encoder = JSONEncoder()
         
         do {
             let jsonData = try encoder.encode(data)
-            if let jsonString = String(data: jsonData, encoding: .utf8) {
-                // 创建一个URL以保存JSON文件
-                let manager = FileManager.default
-                let tmpDirectoryURL = manager.temporaryDirectory
-                let fileURL = tmpDirectoryURL.appendingPathComponent(data.caption + "_" + data.date.ISO8601Format() + ".json")
-                
-                // 将JSON数据写入文件
-                try jsonString.write(to: fileURL, atomically: true, encoding: .utf8)
-                
-                return fileURL
+            if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                if let recordsArray = jsonObject["records"] as? [Any] {
+                    if let recordsJsonData = try? JSONSerialization.data(withJSONObject: recordsArray, options: []) {
+                        if let recordsJsonString = String(data: recordsJsonData, encoding: .utf8) {
+                            if let jsonString = try? jsonForML(recordsJsonString) {
+                                let manager = FileManager.default
+                                let tmpDirectoryURL = manager.temporaryDirectory
+                                let fileURL = tmpDirectoryURL.appendingPathComponent(data.caption + "_" + data.date.ISO8601Format() + ".json")
+                                // 将JSON数据写入文件
+                                try jsonString.write(to: fileURL, atomically: true, encoding: .utf8)
+                                return fileURL
+                            }
+                        }
+                    }
+                }
             }
+            
         } catch {
             print("导出JSON文件时出错：\(error.localizedDescription)")
         }

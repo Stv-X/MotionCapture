@@ -12,10 +12,11 @@ struct ContentView: View {
     @Environment(\.modelContext) private var context
     @Query var allRecords: [MotionRecord]
     @Query var allCaptions: [MotionCaption]
-    @State private var showCaptionSettings = false
     @State private var selectedCaption = "unknown"
     @State private var showStartNow = false
     @State private var showRecords = false
+    @State private var showSettings = false
+    @State private var showCaptionSettings = false
     
     var body: some View {
         NavigationStack {
@@ -24,9 +25,22 @@ struct ContentView: View {
                 records
             }
             .navigationTitle("MotionCapture")
-            .navigationDestination(isPresented: $showStartNow) { StartView(caption: selectedCaption) }
-            .navigationDestination(isPresented: $showRecords) { MotionRecordsView() }
-            .sheet(isPresented: $showCaptionSettings) { CaptionSettings(selection: $selectedCaption) }
+            .navigationDestination(isPresented: $showStartNow) { NavigationStack { StartView(caption: selectedCaption) } }
+            .navigationDestination(isPresented: $showRecords) { NavigationStack { MotionRecordsView() } }
+            .navigationDestination(isPresented: $showSettings) { NavigationStack { SettingsView() } }
+            .sheet(isPresented: $showCaptionSettings) { NavigationStack { CaptionSettings(selection: $selectedCaption, isPresented: $showCaptionSettings) } }
+            
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Label("Settings", systemImage: "gearshape")
+                    }
+                
+                }
+            }
+            
             #if os(watchOS)
             .listStyle(.carousel)
             #endif

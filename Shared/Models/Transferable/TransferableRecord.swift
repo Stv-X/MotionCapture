@@ -13,24 +13,6 @@ struct TransferableRecord: Codable {
     var acceleration: CMAcceleration
     var rotationRate: CMRotationRate
     
-    init() {
-        self.timestamp = Date()
-        self.acceleration = CMAcceleration()
-        self.rotationRate = CMRotationRate()
-    }
-    
-    init(acceleration: CMAcceleration, rotationRate: CMRotationRate) {
-        self.timestamp = Date()
-        self.acceleration = acceleration
-        self.rotationRate = rotationRate
-    }
-    
-    init(timestamp: Date, acceleration: CMAcceleration, rotationRate: CMRotationRate) {
-        self.timestamp = timestamp
-        self.acceleration = acceleration
-        self.rotationRate = rotationRate
-    }
-
 }
 
 extension Array<TransferableRecord> {

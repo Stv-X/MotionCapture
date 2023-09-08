@@ -10,11 +10,12 @@ import CoreMotion
 
 struct RotationRateRecord: Identifiable, Codable {
     var id = UUID()
-    var timestamp = Date()
+    var timestamp: Date
     
     var value: CMRotationRate
     
-    init(x: Double, y: Double, z: Double) {
+    init(timestamp: Date, x: Double, y: Double, z: Double) {
+        self.timestamp = timestamp
         self.value = CMRotationRate(x: x, y: y, z: z)
     }
 }

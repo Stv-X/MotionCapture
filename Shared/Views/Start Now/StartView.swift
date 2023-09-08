@@ -16,6 +16,10 @@ struct StartView: View {
     @State private var manager = MotionCaptureManager(
         updateInterval: 0.01, maxDataCount: 500
     )
+    
+    @AppStorage("updateInterval") private var updateInterval: Double?
+    @AppStorage("captureInterval") private var captureInterval: Double?
+    
     var body: some View {
         List {
             AccelerationMonitor(data: $manager.accelerationRecords)
@@ -34,7 +38,7 @@ struct StartView: View {
                     Image(systemName: isCapturing ? "ellipsis" : "arrow.clockwise")
                         .symbolEffect(
                             .bounce,
-                            options: .repeat(isCapturing ? 5 : 0).speed(0.8),
+                            options: .repeat(isCapturing ? Int(captureInterval ?? 5) : 0).speed(0.75),
                             value: isCapturing
                         )
                         .contentTransition(.symbolEffect(.replace.downUp))
@@ -44,8 +48,16 @@ struct StartView: View {
         }
         .onChange(of: isCapturing) { oldValue, newValue in
             if newValue == true {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime(floatLiteral: captureInterval ?? 5)) {
                     withAnimation { toggleCapturing() }
+                }
+            }
+        }
+        .task {
+            if let updateInterval = updateInterval {
+                if let captureInterval = captureInterval {
+                    let maxDataCount = Int((1 / updateInterval * captureInterval).rounded(.down))
+                    manager = MotionCaptureManager(updateInterval: updateInterval, maxDataCount: maxDataCount)
                 }
             }
         }
@@ -66,4 +78,16 @@ struct StartView: View {
         }
     }
     
+}
+
+extension DispatchTime: ExpressibleByIntegerLiteral {
+    public init(integerLiteral value: Int) {
+        self = DispatchTime.now() + .seconds(value)
+    }
+}
+
+extension DispatchTime: ExpressibleByFloatLiteral {
+    public init(floatLiteral value: Double) {
+        self = DispatchTime.now() + .milliseconds(Int(value * 1000))
+    }
 }

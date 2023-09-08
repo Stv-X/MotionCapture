@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA6CBFB12AAABDE5005DADE6 /* CaptionTemplatesModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CBFB02AAABDE5005DADE6 /* CaptionTemplatesModal.swift */; };
+		AA6CBFB22AAABDE5005DADE6 /* CaptionTemplatesModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CBFB02AAABDE5005DADE6 /* CaptionTemplatesModal.swift */; };
+		AA6CBFB42AAABE02005DADE6 /* AddCaptionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CBFB32AAABE02005DADE6 /* AddCaptionModal.swift */; };
+		AA6CBFB52AAABE02005DADE6 /* AddCaptionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6CBFB32AAABE02005DADE6 /* AddCaptionModal.swift */; };
 		AAB07C9F2AAA194C00E54664 /* MotionRecordArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07C9E2AAA194C00E54664 /* MotionRecordArchive.swift */; };
 		AAB07CA02AAA194C00E54664 /* MotionRecordArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07C9E2AAA194C00E54664 /* MotionRecordArchive.swift */; };
+		AAB07CA32AAA9C6700E54664 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07CA22AAA9C6700E54664 /* SettingsView.swift */; };
+		AAB07CA42AAA9C6700E54664 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB07CA22AAA9C6700E54664 /* SettingsView.swift */; };
 		AAC766F92AA94E87009EB396 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC766F82AA94E87009EB396 /* Assets.xcassets */; };
 		AAC766FC2AA94E87009EB396 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC766FB2AA94E87009EB396 /* Preview Assets.xcassets */; };
 		AAC767022AA94E87009EB396 /* MotionCapture Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AAC767012AA94E87009EB396 /* MotionCapture Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -73,7 +79,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA6CBFB02AAABDE5005DADE6 /* CaptionTemplatesModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTemplatesModal.swift; sourceTree = "<group>"; };
+		AA6CBFB32AAABE02005DADE6 /* AddCaptionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCaptionModal.swift; sourceTree = "<group>"; };
 		AAB07C9E2AAA194C00E54664 /* MotionRecordArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionRecordArchive.swift; sourceTree = "<group>"; };
+		AAB07CA22AAA9C6700E54664 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AAC766F12AA94E86009EB396 /* MotionCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC766F42AA94E86009EB396 /* MotionCaptureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionCaptureApp.swift; sourceTree = "<group>"; };
 		AAC766F82AA94E87009EB396 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -217,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				AAC767082AA94E87009EB396 /* ContentView.swift */,
+				AAB07CA22AAA9C6700E54664 /* SettingsView.swift */,
 				AAC767492AA9BD5D009EB396 /* Start Now */,
 				AAC7674A2AA9BD68009EB396 /* Records */,
 			);
@@ -228,6 +238,8 @@
 			children = (
 				AAC7672F2AA99EA0009EB396 /* StartView.swift */,
 				AAC767322AA99EBC009EB396 /* CaptionSettings.swift */,
+				AA6CBFB32AAABE02005DADE6 /* AddCaptionModal.swift */,
+				AA6CBFB02AAABDE5005DADE6 /* CaptionTemplatesModal.swift */,
 				AAC7673E2AA9A4DC009EB396 /* AccelerationMonitor.swift */,
 				AAC767412AA9A4E5009EB396 /* RotationRateMonitor.swift */,
 			);
@@ -348,6 +360,7 @@
 				AAC7671C2AA94F08009EB396 /* AccelerationRecord.swift in Sources */,
 				AAC767332AA99EBC009EB396 /* CaptionSettings.swift in Sources */,
 				AAC767272AA9558E009EB396 /* TransferableRecord.swift in Sources */,
+				AAB07CA32AAA9C6700E54664 /* SettingsView.swift in Sources */,
 				AAC767232AA95202009EB396 /* PlottableRecord.swift in Sources */,
 				AAC7671A2AA94EBF009EB396 /* MotionRecord.swift in Sources */,
 				AAB07C9F2AAA194C00E54664 /* MotionRecordArchive.swift in Sources */,
@@ -355,10 +368,12 @@
 				AAC767202AA94F16009EB396 /* RotationRateRecord.swift in Sources */,
 				AAC767392AA9A351009EB396 /* MotionCaptureManager.swift in Sources */,
 				AAC767362AA9A0B7009EB396 /* MotionRecordsView.swift in Sources */,
+				AA6CBFB12AAABDE5005DADE6 /* CaptionTemplatesModal.swift in Sources */,
 				AAC767422AA9A4E5009EB396 /* RotationRateMonitor.swift in Sources */,
 				AAC7674C2AA9BD7C009EB396 /* MotionRecordDetailView.swift in Sources */,
 				AAC7672A2AA98D85009EB396 /* TransferableRecords.swift in Sources */,
 				AAC767462AA9BAC1009EB396 /* ContentView.swift in Sources */,
+				AA6CBFB42AAABE02005DADE6 /* AddCaptionModal.swift in Sources */,
 				AAC767472AA9BB14009EB396 /* MotionCaptureApp.swift in Sources */,
 				AAC7673F2AA9A4DC009EB396 /* AccelerationMonitor.swift in Sources */,
 				AAC7672D2AA98DD6009EB396 /* MotionCaption.swift in Sources */,
@@ -372,6 +387,7 @@
 				AAC767092AA94E87009EB396 /* ContentView.swift in Sources */,
 				AAC767312AA99EA0009EB396 /* StartView.swift in Sources */,
 				AAC7671D2AA94F08009EB396 /* AccelerationRecord.swift in Sources */,
+				AAB07CA42AAA9C6700E54664 /* SettingsView.swift in Sources */,
 				AAC767342AA99EBC009EB396 /* CaptionSettings.swift in Sources */,
 				AAC767282AA9558E009EB396 /* TransferableRecord.swift in Sources */,
 				AAB07CA02AAA194C00E54664 /* MotionRecordArchive.swift in Sources */,
@@ -379,10 +395,12 @@
 				AAC7671E2AA94F0D009EB396 /* MotionRecord.swift in Sources */,
 				AAC767212AA94F16009EB396 /* RotationRateRecord.swift in Sources */,
 				AAC767072AA94E87009EB396 /* MotionCaptureApp.swift in Sources */,
+				AA6CBFB22AAABDE5005DADE6 /* CaptionTemplatesModal.swift in Sources */,
 				AAC7673A2AA9A351009EB396 /* MotionCaptureManager.swift in Sources */,
 				AAC7674D2AA9BD7C009EB396 /* MotionRecordDetailView.swift in Sources */,
 				AAC767372AA9A0B7009EB396 /* MotionRecordsView.swift in Sources */,
 				AAC767432AA9A4E5009EB396 /* RotationRateMonitor.swift in Sources */,
+				AA6CBFB52AAABE02005DADE6 /* AddCaptionModal.swift in Sources */,
 				AAC7672B2AA98D85009EB396 /* TransferableRecords.swift in Sources */,
 				AAC767402AA9A4DC009EB396 /* AccelerationMonitor.swift in Sources */,
 				AAC7672E2AA98DD6009EB396 /* MotionCaption.swift in Sources */,

@@ -10,11 +10,12 @@ import CoreMotion
 
 struct AccelerationRecord: Identifiable, Codable {
     var id = UUID()
-    var timestamp = Date()
+    var timestamp: Date
     
     var value: CMAcceleration
     
-    init(x: Double, y: Double, z: Double) {
+    init(timestamp: Date, x: Double, y: Double, z: Double) {
+        self.timestamp = timestamp
         self.value = CMAcceleration(x: x, y: y, z: z)
     }
 }

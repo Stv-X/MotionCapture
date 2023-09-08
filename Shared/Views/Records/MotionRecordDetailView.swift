@@ -12,6 +12,10 @@ struct MotionRecordDetailView: View {
     @State var record: MotionRecord
     var body: some View {
         TabView {
+            summary
+                .tabItem {
+                    Label("Summary", systemImage: "doc.text.image")
+                }
             accelerationStackedChart
                 .tabItem {
                     Label("Acceleration", systemImage: "barometer")
@@ -30,6 +34,52 @@ struct MotionRecordDetailView: View {
                 ShareLink(item: TransferableRecords(record), preview: SharePreview(record.caption.capitalized))
             }
         }
+    }
+    
+    private var summary: some View {
+        ScrollView {
+            HStack {
+                Text(record.creationDate.formatted(date: .abbreviated, time: .standard))
+                    .font(.headline)
+                Spacer()
+            }
+                HStack {
+                    VStack {
+                        Text("\(record.acceleration.count)")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .fontDesign(.rounded)
+                        Text("Acceleration")
+                    }
+                    Divider()
+                    VStack {
+                        Text("\(record.rotationRate.count)")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .fontDesign(.rounded)
+                        Text("Rotation Rate")
+                    }
+                }
+                .frame(height: 100)
+
+            HStack {
+                Text("Capture Interval")
+                    .font(.headline)
+                Spacer()
+            }
+                VStack {
+                    Text(Measurement(value: recordTimeInterval().rounded(), unit: UnitDuration.seconds).formatted())
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .fontDesign(.rounded)
+                    HStack {
+                        Text(record.acceleration.first!.timestamp.formatted(date: .omitted, time: .standard))
+                        Image(systemName: "arrow.forward")
+                        Text(record.acceleration.last!.timestamp.formatted(date: .omitted, time: .standard))
+                    }
+                }
+        }
+        .scenePadding()
     }
     
     private var accelerationStackedChart: some View {
@@ -106,5 +156,8 @@ struct MotionRecordDetailView: View {
         .scenePadding()
     }
 
+    private func recordTimeInterval() -> TimeInterval {
+        record.acceleration.last!.timestamp.timeIntervalSince(record.acceleration.first!.timestamp)
+    }
 }
 

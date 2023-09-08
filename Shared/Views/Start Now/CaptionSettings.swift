@@ -12,81 +12,64 @@ struct CaptionSettings: View {
     @Environment(\.modelContext) private var context
     @Query var allCaptions: [MotionCaption]
     @Binding var selection: String
+    @Binding var isPresented: Bool
     @State private var showAddCaption = false
+    @State private var showTemplates = false
+    
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(allCaptions) { caption in
-                    Button {
-                        selection = caption.caption
-                        for caption in allCaptions {
-                            caption.isSelected = false
-                        }
-                        caption.isSelected = true
-                    } label: {
-                        HStack {
-                            Text(caption.caption.capitalized)
-                            Spacer()
-                            if selection == caption.caption {
-                                Image(systemName: "checkmark")
-                                    .foregroundStyle(.accent)
-                            }
-                        }
+        List {
+            ForEach(allCaptions) { caption in
+                Button {
+                    selection = caption.caption
+                    for caption in allCaptions {
+                        caption.isSelected = false
                     }
-                    .swipeActions {
-                        Button(role: .destructive) {
-                            if selection == caption.caption {
-                                selection = "unknown"
-                            }
-                            context.delete(caption)
-                        } label: {
-                            Image(systemName: "trash")
+                    caption.isSelected = true
+                    isPresented = false
+                } label: {
+                    HStack {
+                        Text(caption.caption.capitalized)
+                            .foregroundStyle(Color.primary)
+                        Spacer()
+                        if selection == caption.caption {
+                            Image(systemName: "checkmark")
+                                .foregroundStyle(.accent)
                         }
-                        .disabled(caption.caption == "unknown")
                     }
                 }
-            }
-            .navigationTitle(selection.capitalized)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showAddCaption = true
+                .swipeActions {
+                    Button(role: .destructive) {
+                        if selection == caption.caption {
+                            selection = "unknown"
+                        }
+                        context.delete(caption)
                     } label: {
-                        Label("Add Caption", systemImage: "plus")
+                        Image(systemName: "trash")
                     }
+                    .disabled(caption.caption == "unknown")
                 }
             }
-            .sheet(isPresented: $showAddCaption) {
-                AddCaptionModal(isPresented: $showAddCaption)
+            Section {
+                Button("Import from templates") {
+                    showTemplates = true
+                }
             }
         }
-    }
-}
-
-struct AddCaptionModal: View {
-    @Environment(\.modelContext) private var context
-    @Query var allCaptions: [MotionCaption]
-    @Binding var isPresented: Bool
-    @State private var caption = ""
-    var body: some View {
-        NavigationStack {
-            VStack {
-                TextField("Caption", text: $caption)
-                #if os(iOS)
-                    .textFieldStyle(.roundedBorder)
-                #endif
-                Spacer()
-                Button("Save") {
-                    let motionCaption = MotionCaption(caption)
-                    context.insert(motionCaption)
-                    caption = ""
-                    isPresented = false
+        .navigationTitle(selection.capitalized)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showAddCaption = true
+                } label: {
+                    Label("Add Caption", systemImage: "plus")
                 }
-                .buttonStyle(.borderedProminent)
-                .disabled(caption == "" || allCaptions.contains(where: { $0.caption == caption }))
             }
-            .navigationTitle("Caption")
-            .scenePadding()
+        }
+        .sheet(isPresented: $showAddCaption) {
+            AddCaptionModal(isPresented: $showAddCaption)
+        }
+        .sheet(isPresented: $showTemplates) {
+            CaptionTemplatesModal(isPresented: $showTemplates, selection: $selection)
         }
     }
 }

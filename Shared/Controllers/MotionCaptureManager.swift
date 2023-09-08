@@ -24,8 +24,10 @@ class MotionCaptureManager {
             guard let userAccelerationData = deviceMotionData?.userAcceleration else { return }
             
             DispatchQueue.main.async {
+                let timestamp = Date()
                 self.rotationRateRecords.append(
                     RotationRateRecord(
+                        timestamp: timestamp,
                         x: rotationRateData.x,
                         y: rotationRateData.y,
                         z: rotationRateData.z))
@@ -35,6 +37,7 @@ class MotionCaptureManager {
                 }
                 self.accelerationRecords.append(
                     AccelerationRecord(
+                        timestamp: timestamp,
                         x: userAccelerationData.x,
                         y: userAccelerationData.y,
                         z: userAccelerationData.z))
